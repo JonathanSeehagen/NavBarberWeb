@@ -1,19 +1,20 @@
-// import React from 'react';
-// import Routes from './routes';
+import './configs/ReactotronConfig';
+
+import React from 'react';
+
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import Routes from './routes';
+
+import GlobalStyle from './styles/global';
 
 function App() {
-  return 'Jonathan';
-  /**
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <Router history={history}>
-          <Routes />
-          <GlobalStyle />
-          <ToastContainer autoClose={3000} />
-        </Router>
-      </PersistGate>
-    </Provider>
-     */
+  return (
+    <Router>
+      <GlobalStyle />
+      <Routes />
+    </Router>
+  );
 }
 
 export default App;
