@@ -10,21 +10,38 @@ import {
   AUTH_SIGN_OUT,
 } from './actionsTypes';
 
-import history from '~/services/history';
+import history from '../../../services/history';
 import api from '~/services/api';
 
 import { signInSuccess, signFailure } from './actions';
 
 export function* signIn({ payload }) {
   try {
+    // eslint-disable-next-line no-unused-vars
     const { email, password } = payload;
 
+    /**
     const response = yield call(api.post, 'sessions', {
       email,
       password,
     });
+     */
 
-    const { token, user } = response.data;
+    // const { token, user } = response.data;
+
+    const user_string = JSON.stringify({
+      user: {
+        id: 1,
+        name: 'Cliente1',
+        email: 'cliente1@navbarber.com',
+        provider: true,
+      },
+    });
+
+    const { user } = JSON.parse(user_string);
+
+    const token =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTg3MDgzNTAxLCJleHAiOjE1ODc2ODgzMDF9.6-JNL1TIf-i0-8DEt2R74N1_C3cIJf4-a4BFusW1Zsw';
 
     if (!user.provider) {
       toast.error('Usuário não é prestador');
@@ -37,7 +54,8 @@ export function* signIn({ payload }) {
 
     history.push('/dashboard');
   } catch (err) {
-    toast.error('Falha na autenticação, verifique seus dados');
+    toast.error(err.message);
+    // toast.error('Falha na autenticação, verifique seus dados');
     yield put(signFailure());
   }
 }
