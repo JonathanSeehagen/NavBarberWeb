@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background: #24241d; //#fff;
+  background: #fff;
   padding: 0 30px;
 `;
 
@@ -26,7 +26,7 @@ export const Content = styled.div`
     a {
       font-weight: bold;
       /**color: #7159c1;*/
-      color: #fff; //#3b9eff;
+      color: #3b9eff;
     }
   }
 
@@ -40,7 +40,7 @@ export const Profile = styled.div`
   display: flex;
   margin-left: 20px;
   padding-left: 20px;
-  border-left: 1px solid #999; //#eee;
+  border-left: 1px solid #eee;
 
   div {
     text-align: right;
@@ -48,7 +48,7 @@ export const Profile = styled.div`
 
     strong {
       display: block;
-      color: #fff; //#333;
+      color: #333;
     }
 
     a {
