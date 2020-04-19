@@ -1,5 +1,5 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // import Notification from '~/components/Notifications';
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { Container, Content, Profile } from './styles';
 
 export default function Header() {
-  // const profile = useSelector((state) => state.user.profile);
+  const profile = useSelector((state) => state.user.profile);
 
   return (
     <Container>
@@ -23,8 +23,7 @@ export default function Header() {
         <aside>
           <Profile>
             <div>
-              <strong>Jonathan</strong>
-              {/** <strong>{profile.name}</strong> */}
+              <strong>{profile.name}</strong>
               <Link to="/profile">Meu perfil</Link>
             </div>
             {/**
